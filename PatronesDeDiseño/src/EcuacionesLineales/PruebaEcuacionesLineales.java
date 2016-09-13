@@ -19,5 +19,9 @@ public class PruebaEcuacionesLineales {
         System.out.println("Prueba de Ecuacion Lineal 2do Grado");
         Ecuacion grado_dos = new GradoDos(coefSegundoGrado);
         grado_dos.display();
+        float[] coefTercerGrado = {3, -4, -12};
+        System.out.println("Prueba de Ecuacion Lineal 3er Grado");
+        Ecuacion grado_tres = new Grado3(coefTercerGrado);
+        grado_tres.display();
     }
 }
