@@ -11,18 +11,27 @@ package CalculadoraSingleton;
  */
 public class Sumadora {
     private static Sumadora instancia;
-    static VistaCalculadora vc = new VistaCalculadora();
+    static VistaCalculadora vc;
     
     private Sumadora(){}
-    
+  
     public static Sumadora getInstancia(){
+        System.out.println(instancia);
         if(instancia == null){
             instancia = new Sumadora();
+            vc = new VistaCalculadora();
+            System.out.println(instancia);
         }
         return instancia;
     }
     
     public static void mostrar(){
         vc.setVisible(true);
+    }
+    
+    public static void cerrar(){
+        vc.dispose();
+        instancia = null;
+        System.out.println(instancia);
     }
 }
