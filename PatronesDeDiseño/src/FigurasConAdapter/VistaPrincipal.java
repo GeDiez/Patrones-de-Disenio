@@ -37,12 +37,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jcb_nomfig = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jbtn_rotar = new javax.swing.JButton();
+        jbtn_rotarDer = new javax.swing.JButton();
         jbtn_tarriba = new javax.swing.JButton();
         jbtn_tabajo = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jbtn_tizq = new javax.swing.JButton();
         jbtn_tder = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jbtn_rotarIzq = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dibuja Figuras");
@@ -57,21 +59,21 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jcb_nomfig);
-        jcb_nomfig.setBounds(60, 60, 160, 24);
+        jcb_nomfig.setBounds(60, 40, 160, 24);
 
         jLabel1.setText("Elige una figura");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(80, 30, 111, 15);
+        jLabel1.setBounds(80, 20, 111, 15);
 
-        jbtn_rotar.setText("Rotar 90°");
-        jbtn_rotar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtn_rotar.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_rotarDer.setText(">>");
+        jbtn_rotarDer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtn_rotarDer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_rotarActionPerformed(evt);
+                jbtn_rotarDerActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtn_rotar);
-        jbtn_rotar.setBounds(90, 110, 100, 25);
+        getContentPane().add(jbtn_rotarDer);
+        jbtn_rotarDer.setBounds(170, 130, 54, 25);
 
         jbtn_tarriba.setText("Arriba");
         jbtn_tarriba.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -81,7 +83,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jbtn_tarriba);
-        jbtn_tarriba.setBounds(100, 170, 80, 25);
+        jbtn_tarriba.setBounds(100, 220, 80, 25);
 
         jbtn_tabajo.setText("Abajo");
         jbtn_tabajo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -91,11 +93,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jbtn_tabajo);
-        jbtn_tabajo.setBounds(100, 240, 80, 25);
+        jbtn_tabajo.setBounds(100, 290, 80, 25);
 
         jLabel2.setText("  Trasladar");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(100, 210, 76, 15);
+        jLabel2.setBounds(100, 260, 76, 15);
 
         jbtn_tizq.setText("Izq.");
         jbtn_tizq.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -105,7 +107,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jbtn_tizq);
-        jbtn_tizq.setBounds(30, 210, 60, 25);
+        jbtn_tizq.setBounds(30, 260, 60, 25);
 
         jbtn_tder.setText("Der.");
         jbtn_tder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -115,7 +117,20 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jbtn_tder);
-        jbtn_tder.setBounds(190, 210, 64, 25);
+        jbtn_tder.setBounds(190, 260, 64, 25);
+
+        jLabel3.setText("Rotar");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(120, 130, 40, 15);
+
+        jbtn_rotarIzq.setText("<<");
+        jbtn_rotarIzq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_rotarIzqActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbtn_rotarIzq);
+        jbtn_rotarIzq.setBounds(50, 130, 54, 25);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -139,10 +154,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
         ap.repaint();
     }//GEN-LAST:event_jcb_nomfigActionPerformed
 
-    private void jbtn_rotarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_rotarActionPerformed
-        ap.setGrados( ap.getGrados() + 90 );
+    private void jbtn_rotarDerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_rotarDerActionPerformed
+        if(ap.getGrados() > 360){
+            ap.setGrados(0);
+        }
+        ap.setGrados( ap.getGrados() - 5 );
         ap.repaint();   
-    }//GEN-LAST:event_jbtn_rotarActionPerformed
+    }//GEN-LAST:event_jbtn_rotarDerActionPerformed
 
     private void jbtn_tarribaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_tarribaActionPerformed
         // TODO add your handling code here:
@@ -167,6 +185,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
         ap.setPosicion(ap.getPosicionx() + 10, ap.getPosiciony());
         ap.repaint();
     }//GEN-LAST:event_jbtn_tderActionPerformed
+
+    private void jbtn_rotarIzqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_rotarIzqActionPerformed
+        // TODO add your handling code here:
+        if(ap.getGrados() < 0){
+            ap.setGrados(360);
+        }
+        ap.setGrados( ap.getGrados() + 5 );
+        ap.repaint();
+    }//GEN-LAST:event_jbtn_rotarIzqActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,7 +233,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton jbtn_rotar;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jbtn_rotarDer;
+    private javax.swing.JButton jbtn_rotarIzq;
     private javax.swing.JButton jbtn_tabajo;
     private javax.swing.JButton jbtn_tarriba;
     private javax.swing.JButton jbtn_tder;

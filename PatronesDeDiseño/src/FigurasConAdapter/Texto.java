@@ -27,11 +27,13 @@ public class Texto extends JLabel{
     }
     
     public void setPosicion(int x, int y){
-        setBounds(x, y, x + 100, y + 18);
-        ejeRotacionX = x + 50;
-        ejeRotacionY = y + 9;
+        setBounds(x, y, 100, 100);
+        ejeRotacionX = 50;
+        ejeRotacionY = 50;
         setHorizontalAlignment(JLabel.CENTER);
-        setVerticalAlignment(JLabel.BOTTOM);
+        setVerticalAlignment(JLabel.CENTER);
+        System.out.println("Posicion en X: "+x);
+        System.out.println("Posicion en Y: "+y);
     }
     
     public void setGrados(int gr){
@@ -44,16 +46,16 @@ public class Texto extends JLabel{
 
     @Override
     public void paint(Graphics g){
-        /*
-        AffineTransform at = new AffineTransform();
+        Graphics2D g2d = (Graphics2D) g;
+        /*AffineTransform at = new AffineTransform();
         at.rotate((Math.PI * grados)/180, ejeRotacionX, ejeRotacionY);
-        Graphics2D g2d = (Graphics2D) g;        
-        g2d.setTransform(at);
+        g2d.setTransform(at);*/        
         System.out.println("llego aqui "+ grados);
+        g2d.setColor(Color.RED);        
+        System.out.println("Metodo paint de Texto");
+        g2d.rotate((Math.PI * grados)/180, ejeRotacionX, ejeRotacionY);        
         super.paint(g);
-        g2d.setColor(Color.RED);
         g2d.fillOval(ejeRotacionX, ejeRotacionY, 3, 3);
-        */
     }
 
 }

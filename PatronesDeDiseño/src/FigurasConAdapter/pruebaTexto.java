@@ -26,15 +26,13 @@ public class pruebaTexto {
         v.getContentPane().setLayout(null);  
         v.setSize(new Dimension(500, 500));
         v.setLocationRelativeTo(null);
-        //label.repaint();
-        label.setPosicion(10, 10);    
         
-        //label.setBounds(10, 10, 200, 100);
-        label.setGrados(0);
+        v.getContentPane().add(label);
         
-        v.getContentPane().add(label); 
-                
-        //v.pack();
+        label.setPosicion(15, 250);
+        label.setGrados(45);
+        
+        label.setText("Adios ");
         v.setVisible(true);
     }
 }

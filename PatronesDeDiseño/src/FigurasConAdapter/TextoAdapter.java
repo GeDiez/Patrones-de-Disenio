@@ -25,16 +25,12 @@ public class TextoAdapter implements Forma{
     
     @Override
     public void pintar(Graphics2D g, int x, int y) {
-        texto.setBounds(x, y, 200, 20);
-        System.out.println("Aqui debe Pintar el texto");
+        texto.setPosicion(x, y);
     }
 
     @Override
     public void rotar(Graphics2D g, int grados, int x, int y) {
-        texto.setGrados(texto.getGrados() + grados);
-        texto.repaint();
-        //texto.setGrados(texto.getGrados() + grados);
-        //texto.getLabel().repaint();
+        texto.setGrados(grados);
         System.out.println("Aqui debe rotar el texto");
     }
 

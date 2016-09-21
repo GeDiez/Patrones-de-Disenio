@@ -57,8 +57,8 @@ public class AreaPintado extends javax.swing.JPanel{
         Graphics2D g2d = (Graphics2D) g;
         if(figura != null){               
             //figura.trasladar(g, x2, y2);
-            figura.pintar(g2d, x, y);
             figura.rotar(g2d, grados, x, y);
+            figura.pintar(g2d, x, y);            
         }
     }
     
