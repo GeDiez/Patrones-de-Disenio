@@ -59,7 +59,7 @@ public class AreaPintado extends javax.swing.JPanel{
             //figura.trasladar(g, x2, y2);
             figura.rotar(g2d, grados, x, y);
             figura.pintar(g2d, x, y);            
-        }
+        }        
     }
     
 }

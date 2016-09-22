@@ -18,12 +18,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
      */
     AreaPintado ap = new AreaPintado();
     Forma figura = null;
+    Texto texto;
     public VistaPrincipal() {
         initComponents();        
         getContentPane().add(ap);
-        ap.setBounds(260, 20, 600, 500);
+        ap.setBounds(260, 20, 400, 350);
         setLocation(200, 50);
-        setSize(1000, 600);
+        setSize(700, 500);
     }
 
     /**
@@ -45,6 +46,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jbtn_tder = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jbtn_rotarIzq = new javax.swing.JButton();
+        jtf_letrero = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dibuja Figuras");
@@ -132,11 +135,26 @@ public class VistaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jbtn_rotarIzq);
         jbtn_rotarIzq.setBounds(50, 130, 54, 25);
 
+        jtf_letrero.setText("Hello World");
+        jtf_letrero.setToolTipText("Escribe un Texto para pintarlo");
+        jtf_letrero.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtf_letreroFocusLost(evt);
+            }
+        });
+        getContentPane().add(jtf_letrero);
+        jtf_letrero.setBounds(50, 80, 170, 30);
+
+        jLabel4.setFont(new java.awt.Font("DejaVu Serif", 1, 12)); // NOI18N
+        jLabel4.setText("Desarrollado por Gibran Lopez Morales     @GeDiez");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(280, 410, 380, 15);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcb_nomfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_nomfigActionPerformed
-        String fig = (String) jcb_nomfig.getSelectedItem();
+        String fig = (String) jcb_nomfig.getSelectedItem();      
         if(fig.equals("Cuadro")){
             figura = new Rectangulo();                    
         }
@@ -146,10 +164,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
         }
         
         if(fig.equals("Texto")){
-            Texto texto = new Texto("Hello World! ");
+            if(texto == null){
+                texto = new Texto("");
+            }
+            texto.setText(jtf_letrero.getText());
             //ap.add(new JLabel("hola")).setBounds(10, 10, 100, 100);
             figura = new TextoAdapter(texto, ap);
         }
+        else{
+            if(texto != null){
+                texto.setText("");
+            }
+        }     
         ap.setFigura(figura);
         ap.repaint();
     }//GEN-LAST:event_jcb_nomfigActionPerformed
@@ -158,8 +184,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         if(ap.getGrados() > 360){
             ap.setGrados(0);
         }
-        ap.setGrados( ap.getGrados() - 5 );
-        ap.repaint();   
+        ap.setGrados( ap.getGrados() + 5 );
+        ap.repaint();
     }//GEN-LAST:event_jbtn_rotarDerActionPerformed
 
     private void jbtn_tarribaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_tarribaActionPerformed
@@ -191,9 +217,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
         if(ap.getGrados() < 0){
             ap.setGrados(360);
         }
-        ap.setGrados( ap.getGrados() + 5 );
+        ap.setGrados( ap.getGrados() - 5 );
         ap.repaint();
     }//GEN-LAST:event_jbtn_rotarIzqActionPerformed
+
+    private void jtf_letreroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_letreroFocusLost
+        // TODO add your handling code here:
+        if(texto != null){           
+            texto.setText(jtf_letrero.getText());
+        }
+    }//GEN-LAST:event_jtf_letreroFocusLost
 
     /**
      * @param args the command line arguments
@@ -234,6 +267,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton jbtn_rotarDer;
     private javax.swing.JButton jbtn_rotarIzq;
     private javax.swing.JButton jbtn_tabajo;
@@ -241,5 +275,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_tder;
     private javax.swing.JButton jbtn_tizq;
     private javax.swing.JComboBox<String> jcb_nomfig;
+    private javax.swing.JTextField jtf_letrero;
     // End of variables declaration//GEN-END:variables
 }

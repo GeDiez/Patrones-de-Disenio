@@ -6,6 +6,7 @@
 package FigurasConAdapter;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
@@ -20,16 +21,17 @@ public class Texto extends JLabel{
     
     Texto(String tx){
         super(tx);   
-        setOpaque(true);
-        setBackground(Color.CYAN);
+        //setOpaque(true);
+        //setBackground(Color.GRAY);
         setHorizontalAlignment(JLabel.LEFT);
         setVerticalAlignment(JLabel.BOTTOM);
+        setFont(new Font("Helvetica", Font.BOLD, 18));
     }
     
     public void setPosicion(int x, int y){
-        setBounds(x, y, 100, 100);
-        ejeRotacionX = 50;
-        ejeRotacionY = 50;
+        setBounds(x, y, 200, 200);
+        ejeRotacionX = 100;
+        ejeRotacionY = 100;
         setHorizontalAlignment(JLabel.CENTER);
         setVerticalAlignment(JLabel.CENTER);
         System.out.println("Posicion en X: "+x);
