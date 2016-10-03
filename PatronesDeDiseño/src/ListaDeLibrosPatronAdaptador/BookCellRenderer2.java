@@ -19,7 +19,7 @@ import javax.swing.ListCellRenderer;
  */
 public class BookCellRenderer2 implements ListCellRenderer {
     private static final Color HIGHLIGHT_COLOR = new Color(0, 0, 128);
-    private JComboBox comboBook;
+    private JCheckBox comboBook;
 
     public BookCellRenderer2( ) {}
 
@@ -30,15 +30,13 @@ public class BookCellRenderer2 implements ListCellRenderer {
         boolean isSelected,
         boolean cellHasFocus)
     {
-        comboBook = new JComboBox();
+        comboBook = new JCheckBox();
         BookEntry entry = (BookEntry)value;
-        comboBook.addItem(entry.getTitle());//Linea Agregada
+        comboBook.setText(entry.getTitle());//Linea Agregada
         if(isSelected) {
-            comboBook.setBackground(HIGHLIGHT_COLOR);
-            comboBook.setForeground(Color.white);
+            comboBook.setSelected(true);
         } else {
-            comboBook.setBackground(Color.white);
-            comboBook.setForeground(Color.black);
+            comboBook.setSelected(false);
         }
         return comboBook;
     }

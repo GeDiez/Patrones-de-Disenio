@@ -57,7 +57,7 @@ public class ListExample extends JPanel {
         setLayout(new BorderLayout( ));
         JButton button = new JButton("Print con JLabel");
         button.addActionListener(new PrintListener( ));
-        JButton button2 = new JButton("Print con JComboBox");
+        JButton button2 = new JButton("Print con JCheckBox");
         button2.addActionListener(new PrintListener2( ));
 
         booklist = new JList(books);        
