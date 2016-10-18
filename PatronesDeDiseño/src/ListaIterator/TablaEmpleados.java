@@ -19,11 +19,15 @@ public class TablaEmpleados extends Tabla{
 
     @Override
     public void volcarDatos(Iterator iterador) {
+        iterador.sort();
         while(iterador.hasNext()){
             Empleado e = (Empleado) iterador.next();
             modelo.addRow(new Object[]{
                 e.getNombre(),
-                e.getPuesto()
+                e.getPuesto(),
+                e.getAño(),
+                e.getMes(),
+                e.getDia()
             });
         }
     }

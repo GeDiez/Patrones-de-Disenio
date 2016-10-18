@@ -9,13 +9,16 @@ package ListaIterator;
  *
  * @author gediez
  */
-public class Empleado {
+public class Empleado extends ElementoFechado{
     private String nombre;
     private String puesto;
     
-    Empleado(String n, String p){
+    Empleado(String n, String p, int aa, int mm, int dd){
         nombre = n;
         puesto = p;
+        setAño(aa);
+        setMes(mm);
+        setDia(dd);
     }
 
     public String getNombre() {

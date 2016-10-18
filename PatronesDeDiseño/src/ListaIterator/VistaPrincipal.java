@@ -164,7 +164,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addGap(29, 29, 29))
         );
 
-        jTabbedPane1.addTab("Nuevo", jPanel1);
+        jTabbedPane1.addTab("Nuevo Articulo", jPanel1);
 
         jLabel6.setText("Lista de Articulos");
 
@@ -173,14 +173,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Numero", "Descripcion", "Precio", "Cantidad"
+                "Numero", "Descripcion", "Precio", "Cantidad", "Año", "Mes", "Dia"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -217,15 +217,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(172, 172, 172)
+                                .addComponent(jLabel6))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
                                 .addComponent(jckb_rango)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(28, 28, 28)
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jtf_rmin, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,8 +233,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jtf_rmax, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(jbtn_recargar)))))
-                .addContainerGap(61, Short.MAX_VALUE))
+                                .addComponent(jbtn_recargar)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +256,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Listar", jPanel2);
+        jTabbedPane1.addTab("Articulos", jPanel2);
 
         jLabel8.setText("Primer Articulo");
 
@@ -348,11 +349,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Puesto"
+                "Nombre", "Puesto", "Año", "Mes", "Dia"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

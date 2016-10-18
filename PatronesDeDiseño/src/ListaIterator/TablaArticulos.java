@@ -19,13 +19,17 @@ public class TablaArticulos extends Tabla{
     
     @Override
     public void volcarDatos(Iterator iterador){
+        iterador.sort();
         while(iterador.hasNext()){
             Articulo a = (Articulo) iterador.next();
             modelo.addRow(new Object[]{
                 iterador.getIndice(),
                 a.getDescripcion(),
                 a.getCantidad(),
-                a.getPrecio()
+                a.getPrecio(),
+                a.getAño(),
+                a.getMes(),
+                a.getDia()
             });
         }
     }

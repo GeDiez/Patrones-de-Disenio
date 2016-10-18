@@ -24,6 +24,7 @@ public class ListaArticulo {
     
     public void imprimir(){
         Iterator itera = creaIterador();
+        itera.sort();
         while(itera.hasNext()){
             Articulo a = (Articulo)(itera.next());
             System.out.println(a.toString());

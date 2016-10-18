@@ -3,19 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ListaIterator;
-
-import java.util.ArrayList;
+package EjemploIterator;
 
 /**
  *
  * @author gediez
  */
-public interface Iterator {
+interface Iterator {
     public Object next();
     public boolean hasNext();
     public Object first();
     public Object last();
-    public int getIndice();
-    public void sort();
 }

@@ -26,17 +26,19 @@ public class Prueba implements ActionListener{
     
     Prueba(){
         la = new ListaArticulo();
-        la.agregar(new Articulo("Coca Cola", 12, 15));
-        la.agregar(new Articulo("Barritas", 8, 7));
-        la.agregar(new Articulo("Chetos", 6, 10));
-        la.agregar(new Articulo("Sabritas :)", 10, 11));
+        la.agregar(new Articulo("Coca Cola", 12, 15, 2014, 10, 17));
+        la.agregar(new Articulo("Barritas", 8, 7, 2013, 11, 5));
+        la.agregar(new Articulo("Chetos", 6, 10, 2013, 5, 1));
+        la.agregar(new Articulo("Sabritas :)", 10, 11, 2012, 10, 3));
         
-        le = new ListaEmpleado();        
-        le.agregar(new Empleado("Jorge", "Almacenista"));
-        le.agregar(new Empleado("Mario", "vendedor"));
-        le.agregar(new Empleado("Noe", "Dueño"));
-        le.agregar(new Empleado("Veronica", "vendedor"));
-        le.agregar(new Empleado("Miguel", "Conductor"));
+        la.imprimir();
+        
+        le = new ListaEmpleado();
+        le.agregar(new Empleado("Jorge", "Almacenista", 2012, 10, 10));
+        le.agregar(new Empleado("Mario", "vendedor", 2015, 1, 10));
+        le.agregar(new Empleado("Noe", "Dueño", 2013, 4, 2));
+        le.agregar(new Empleado("Veronica", "vendedor", 2011, 5, 5));
+        le.agregar(new Empleado("Miguel", "Conductor", 2012, 7, 10));
         
         vp = new VistaPrincipal();
         vp.getJbtn_guardar().addActionListener(this);
@@ -61,7 +63,10 @@ public class Prueba implements ActionListener{
                         new Articulo(
                             vp.getJtf_des().getText(),
                             Integer.parseInt(vp.getJtf_cant().getText()),
-                            Double.parseDouble(vp.getJtf_precio().getText())
+                            Double.parseDouble(vp.getJtf_precio().getText()),
+                                2012,
+                                10,
+                                3
                         ));
                 vp.getJl_advertencia().setText("* Datos almacenados");
             }

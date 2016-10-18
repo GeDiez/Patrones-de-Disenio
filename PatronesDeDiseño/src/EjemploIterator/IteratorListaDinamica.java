@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ListaIterator;
+package EjemploIterator;
 
 import java.util.ArrayList;
 
@@ -11,11 +11,17 @@ import java.util.ArrayList;
  *
  * @author gediez
  */
-public class IteradorListaRango implements Iterator{
-    private int indice, min, max;
-    private ArrayList lista;
+public class IteratorListaDinamica implements Iterator{
+    private int indice = 0, min, max;
+    private ListaArrayList lista;
     
-    IteradorListaRango(ArrayList e, int min, int max){
+    IteratorListaDinamica(ListaArrayList e){
+        lista = e;
+        min = indice = 0;
+        max = e.getTamaño();
+    }
+    
+    IteratorListaDinamica(ListaArrayList e, int min, int max){
         lista = e;
         this.min = indice = min;
         this.max = max;
@@ -23,7 +29,7 @@ public class IteradorListaRango implements Iterator{
     
     @Override
     public Object next() {
-        return lista.get(indice++);
+        return lista.getElemento(indice++);
     }
 
     @Override
@@ -33,21 +39,11 @@ public class IteradorListaRango implements Iterator{
 
     @Override
     public Object first() {
-        return lista.get(min);
+        return lista.getElemento(min);
     }
 
     @Override
     public Object last() {
-        return lista.get(max);
-    }
-
-    @Override
-    public int getIndice() {
-        return indice;
-    }
-
-    @Override
-    public void sort() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return lista.getElemento(max-1);
     }
 }

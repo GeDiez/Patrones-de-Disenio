@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * @author gediez
  */
 public class IteradorLista implements Iterator{
-private int indice;
-private ArrayList lista;
+private int indice = 0;
+private ArrayList <ElementoFechado> lista;
 
     IteradorLista(ArrayList e){ lista = e; }
 
@@ -29,7 +29,7 @@ private ArrayList lista;
 
     @Override
     public Object first() {
-        return lista.get(1);
+        return lista.get(0);
     }
 
     @Override
@@ -40,5 +40,41 @@ private ArrayList lista;
     @Override
     public int getIndice(){
         return indice;
+    }
+    
+    @Override
+    public void sort() {
+        System.out.println("Ordenando---");
+      boolean swapped = true;
+      int j = 0;
+      ElementoFechado tmp;
+      while (swapped) {
+            swapped = false;
+            j++;
+            for (int i = 0; i < lista.size() - j; i++) {
+                if(lista.get(i).getAño() > lista.get((i + 1)).getAño()){
+                    tmp = lista.get(i);
+                    lista.set(i, lista.get(i + 1));
+                    lista.set(i+1, tmp);
+                    swapped = true;
+                }
+                else if(lista.get(i).getAño() == lista.get((i + 1)).getAño()){
+                    if(lista.get(i).getMes() > lista.get((i + 1)).getMes()){
+                        tmp = lista.get(i);
+                        lista.set(i, lista.get(i + 1));
+                        lista.set(i+1, tmp);
+                        swapped = true;
+                    } 
+                    else if(lista.get(i).getMes() == lista.get((i + 1)).getMes()){
+                        if(lista.get(i).getDia() > lista.get((i + 1)).getDia()){
+                            tmp = lista.get(i);
+                            lista.set(i, lista.get(i + 1));
+                            lista.set(i+1, tmp);
+                            swapped = true;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

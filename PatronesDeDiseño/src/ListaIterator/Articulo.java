@@ -9,15 +9,18 @@ package ListaIterator;
  *
  * @author gediez
  */
-public class Articulo {
+public class Articulo extends ElementoFechado{
     private String descripcion;
     private int cantidad;
     private double precio;
     
-    Articulo(String d, int c, double p){
+    Articulo(String d, int c, double p, int aa, int mm, int dd ){
         descripcion = d;
         cantidad = c;
         precio = p;
+        setAño(aa);
+        setMes(mm);
+        setDia(dd);
     }
     
     public String getDescripcion() {
